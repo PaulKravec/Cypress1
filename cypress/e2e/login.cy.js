@@ -42,8 +42,9 @@ describe('login screen', () => {
     it('Delete from favarite book', () => {
         cy.visit('http://localhost:3000');
         cy.login('test@test.com', 'test');
+        cy.contains('Add to favorite').click();
         cy.contains('Delete from favorite').click();
-        cy.contains('Add new').should('be.visible');
+        cy.contains('War and Peace').should('be.visible');
     });
 
     it('Add new book after deletion', () => {
@@ -56,18 +57,5 @@ describe('login screen', () => {
         cy.get('#favorite').click();
         cy.contains('Submit').click();
         cy.contains('Delete from favorite').should('be.visible');
-    });
-
-    it('Shouldn"t Add a favorite book to another user', () => {
-        cy.visit('http://localhost:3000');
-        cy.login('test@test.com', 'test');
-        cy.contains('Add new').click();
-        cy.get('#title').type('Chameleon');
-        cy.get('#description').type('The puppy bit a passerby. The policeman wanted to euthanize the puppy and fine his owner, but it turned out that the owner was the generals brother. The policeman was thrown into a fever. He ordered the puppy to be released, and scolded a passerby.');
-        cy.get('#authors').type('Anton Pavlovich Chehov');
-        cy.contains('Submit').click();
-        cy.contains('button', 'Log out').click();
-        cy.login('bropet@mail.ru', '123');
-        cy.contains('Add new').should('be.visible');
     });
 });

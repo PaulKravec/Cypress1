@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "web_headed": "npx cypress open --browser --headed chrome --config cypress.config.js",
-    "mob_headed": "npx cypress open --browser --headed chrome --config-file cypress2.config.js",
-    "web_headless": "npx cypress run --browser --headless chrome --config cypress.config.js",
-    "mob_headless": "npx cypress run --browser --headless chrome --config-file cypress2.config.js"
+    "web_headed": "npx cypress open --browser chrome --headed  --config cypress.config.js",
+    "mob_headed": "npx cypress open --browser chrome --headed  --config-file cypress2.config.js",
+    "web_headless": "npx cypress run --browser chrome --headless  --config cypress.config.js",
+    "mob_headless": "npx cypress run --browser chrome --headless --config-file cypress2.config.js"
   },
   "keywords": [],
   "author": "",
